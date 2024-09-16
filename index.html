@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ravi Editx - YouTube Career</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('https://i.ibb.co/0h5pCNB/8ab642848a1a143987e780792d50d973.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+            text-align: center;
+        }
+        .container {
+            padding: 50px 20px;
+        }
+        h1 {
+            font-size: 3em;
+            margin-bottom: 0.5em;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+        }
+        p {
+            font-size: 1.2em;
+            margin-bottom: 2em;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+        }
+        .photo {
+            width: 100%;
+            max-width: 500px;
+            height: auto;
+            border: 4px solid #fff;
+            margin: 20px auto;
+        }
+        .logo-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 20px 0;
+        }
+        .logo-circle {
+            width: 150px;
+            height: 150px;
+            background: linear-gradient(135deg, #ff4081, #7c4dff);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+            animation: pulse 2s infinite;
+        }
+        .logo-circle::before, .logo-circle::after {
+            content: '';
+            position: absolute;
+            border-radius: 50%;
+        }
+        .logo-circle::before {
+            width: 180%;
+            height: 180%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 70%);
+            animation: rotate 6s linear infinite;
+        }
+        .logo-circle::after {
+            width: 220%;
+            height: 220%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 70%);
+            animation: rotate 10s linear infinite reverse;
+        }
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        .logo {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 4px solid #fff;
+            position: relative;
+            z-index: 1;
+            object-fit: cover;
+        }
+        .download-section {
+            margin: 40px 0;
+        }
+        .download-btn {
+            background-color: #7c4dff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1.2em;
+            color: #fff;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .download-btn:hover {
+            background-color: #ff4081;
+        }
+        .code-section {
+            padding: 20px;
+            border-radius: 10px;
+            display: inline-block;
+            text-align: left;
+            font-weight: bold;
+        }
+        .copy-text {
+            color: #ff4081;
+            cursor: pointer;
+            font-weight: bold;
+            display: block;
+            width: 300px;
+            margin: 0 auto;
+            padding: 10px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        .image-block {
+            width: 300px;
+            height: 300px;
+            background-color: #fff;
+            margin: 20px auto;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .image-block img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .comment-section {
+            margin: 40px 0;
+            text-align: left;
+        }
+        .comment-section textarea {
+            width: 100%;
+            max-width: 600px;
+            height: 100px;
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        .comment-section button {
+            background-color: #7c4dff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1.2em;
+            color: #fff;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .comment-section button:hover {
+            background-color: #ff4081;
+        }
+        .qna-section {
+            margin: 40px 0;
+        }
+        .qna-section h2 {
+            margin-bottom: 20px;
+        }
+        .qna-section img {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            cursor: pointer;
+        }
+        .hud {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80%;
+            max-width: 500px;
+            background-color: rgba(0, 0, 0, 0.9);
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            animation: fadeIn 1s ease-in-out;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+        }
+        .hud button {
+            background-color: #ff4081;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1.2em;
+            color: #fff;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 10px;
+        }
+        .hud button:hover {
+            background-color: #7c4dff;
+        }
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+    </style>
+    <script>
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(function() {
+                alert('Copied to clipboard!');
+            }, function(err) {
+                console.error('Could not copy text: ', err);
+            });
+        }
+        function dismissHud() {
+            document.getElementById('hud').style.display = 'none';
+        }
+    </script>
+</head>
+<body>
+    <div class="hud" id="hud">
+        <p>💫Welcome, subscribers! Enjoy my website & see the maps I made. Have a fun!😊</p>
+        <button onclick="dismissHud()">OK</button>
+    </div>
+    <div class="container">
+        <h1>Ravi Editx</h1>
+        <div class="logo-container">
+            <div class="logo-circle">
+                <img src="https://i.ibb.co/MRtHJXr/Picsart-24-03-11-19-13-44-210.png" alt="Picsart-24-03-11-19-13-44-210" class="logo">
+            </div>
+        </div>
+        <p><b>✨Welcome to my website! I'm Ravi Editx, a passionate YouTuber creating amazing content. Explore my channel and stay tuned for exciting videos and updates.❤️</b></p>
+
+        <h2>•MAP FILE TO ADD OUTFITS,EMOTES&GUN SKINS</h2>
+        <div class="image-block">
+            <img src="https://i.ibb.co/Kq7gLdy/Picsart-24-07-14-13-22-40-489.jpg" alt="Picsart-24-07-14-13-22-40-489">
+        </div>
+
+        <div class="download-section">
+            <h2>Download Map File</h2>
+           <a href="https://www.mediafire.com/file/xbiq7wjfs6a7gmw/Map+by+Ravi+Editx.zip/file" download>
+        <button class="download-btn">Download Now</button>
+    </a>
+</div>
+         <h2>•OLD~SOCIAL~ISLAND</h2>
+          <div class="image-block">
+        <img src="https://i.ibb.co/rpGL4RM/Picsart-24-07-29-18-17-28-552.jpg" alt="Picsart-24-07-29-18-17-28-552" border="0"></a></div>
+          
+       
+        <div class="code-section">
+            <h2>Copy This Code</h2>
+            <code onclick="copyToClipboard('#FREEFIREDD5EC68FAC127717872CBF34C0B976AF5872')">
+<h3>•BANGLADESH-(ALL SERVER EXCEPT INDIA)</h3>
+          
+<h4>#FREEFIREDD5EC68FAC127717872CBF34C0B976AF5872</h4> </code>
+<code onclick="copyToClipboard('#FREEFIREBFF7A2B1B579A6AF0F166FED815158E48058')">
+
+                <h3>•INDIA-</h3>
+<h4>#FREEFIREBFF7A2B1B579A6AF0F166FED815158E48058</h4>
+            </code>
+          
+        </div> 
+            </a>
+          </div>
+          <h2>•MY Firts Map on 1k</h2>
+          <div class="image-block">
+            <img src="https://i.ibb.co/NCVfthc/Picsart-23-12-09-17-43-50-610.jpg" alt="Picsart-23-12-09-17-43-50-610" border="0"> alt="Image"> <\a>
+        </div>
+          
+       
+        <div class="code-section">
+            <h2>Copy This Code</h2>
+            <code onclick="copyToClipboard('#FREEFIRED0DD12D2D1867D04C6ADB0EEB14707D82561')">
+<h3>•BANGLADESH-</h3>
+          
+<h4>#FREEFIRED0DD12D2D1867D04C6ADB0EEB14707D82561</h4> </code>
+<code onclick="copyToClipboard('#FREEFIRE5C55557EF4BBC2F9EF35989FA364A2037938')">
+<h3>•Indonesia-</h3>
+<h4>#FREEFIRE5C55557EF4BBC2F9EF35989FA364A2037938</h4> </code>
+<code onclick="copyToClipboard('#FREEFIRE6334EB72BB554EE9A3B6D73FE3A08E7B8058')">
+
+                <h3>•INDIA-</h3>
+<h4>#FREEFIRE6334EB72BB554EE9A3B6D73FE3A08E7B8058</h4>
+            </code>
+        </div>
+
+        
+        <div class="qna-section">
+            <h2>•Comment Fast For Q&A.~Click To Comment!</h2>
+            <a href="http://youtube.com/post/UgkxmJCQzGNnSZchRuxRJ3tnkHcuWK6-da5A ">
+               <img src="https://i.ibb.co/dDsp9Wx/IMG-20240714-091538.jpg" alt="IMG-20240714-091538" border="0">
+            </a>
+        </div>
+          
+          <div class="comment-section">
+            <h2>•Comment Section!•Any Question/Any Complains</h2>
+            <textarea placeholder="Leave a comment..."></textarea>
+            <button>Submit</button>
+        </div>
+          
+    </div>
+</body>
+</html>
